@@ -1,23 +1,801 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
+
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "2026 랜드로버 올 뉴 디펜더 (Land Rover Defender)",
+      "image": "https://www.landrover.co.kr/images/defender-2026.jpg",
+      "description": "2026년형 랜드로버 디펜더 90, 110, 130 모델별 가격, 상세 옵션 변경 사항, 취등록세 예상 견적 및 오너 시승기 기반 장단점 비교 안내입니다.",
+      "brand": {
+        "@type": "Brand",
+        "name": "랜드로버"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "KRW",
+        "lowPrice": "111370000",
+        "highPrice": "245470000",
+        "offerCount": "11"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "2026년형 랜드로버 디펜더의 시작 가격은 얼마인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2026년형 랜드로버 올 뉴 디펜더의 시작 가격은 디펜더 90 D250 X-Dynamic SE 트림 기준 1억 1,137만 원부터 시작하며, 최상위 고성능 트림인 110 P635 OCTA Black 에디션은 2억 4,547만 원에 책정되어 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "디펜더 디젤과 가솔린 모델 중 어떤 것을 추천하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "디젤 모델인 D250과 D300은 마일드 하이브리드 기술이 적용되어 우수한 실연비와 뛰어난 오프로드 토크를 제공하며, 장거리 운행에 적합합니다. 반면 소음과 진동에 예민하고 일상적인 도심 주행 및 정숙성을 극대화하고 싶다면 가솔린 P300 또는 P400 모델이 추천됩니다."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #334155;
+      line-height: 1.8;
+      letter-spacing: -0.02em;
+    }
+    header, section, footer {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 40px;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+    header {
+      padding-top: 50px;
+      padding-bottom: 30px;
+      border-top: 6px solid #0f766e;
+    }
+    h1 {
+      font-size: 2.6rem;
+      color: #0f172a;
+      font-weight: 900;
+      margin-top: 0;
+      letter-spacing: -0.04em;
+      line-height: 1.4;
+    }
+    h2 {
+      font-size: 2rem;
+      color: #0f766e;
+      font-weight: 700;
+      margin-top: 1.8em;
+      border-bottom: 3px solid #f1f5f9;
+      padding-bottom: 12px;
+    }
+    h3 {
+      font-size: 1.4rem;
+      color: #1e293b;
+      font-weight: 700;
+      margin-top: 1.5em;
+      margin-bottom: 1em;
+    }
+    p, li {
+      font-size: 1.1rem;
+      color: #475569;
+      margin-bottom: 1.2em;
+      text-align: justify;
+    }
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-left: 0;
+      list-style: none;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #0f766e;
+      padding: 10px 16px;
+      background-color: #f0fdfa;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #0f766e;
+      color: #ffffff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      font-size: 1rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+    th, td {
+      border: 1px solid #e2e8f0;
+      padding: 18px;
+      text-align: center;
+    }
+    th {
+      background-color: #0f766e;
+      color: white;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    td {
+      background-color: #ffffff;
+    }
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+    .input-section {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .input-group {
+      flex: 1 1 calc(50% - 10px);
+      display: flex;
+      flex-direction: column;
+    }
+    .input-group-full {
+      flex: 1 1 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+    input[type="text"], input[type="tel"], input[type="number"], select, textarea {
+      padding: 14px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      background-color: #ffffff;
+      color: #334155;
+    }
+    input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+      border-color: #0f766e;
+      box-shadow: 0 0 8px rgba(15, 118, 110, 0.2);
+      outline: none;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+    button.cta-btn {
+      background-color: #b45309;
+      color: white;
+      padding: 18px 36px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+    button.cta-btn:hover {
+      background-color: #92400e;
+    }
+    .info-box {
+      background-color: #f0fdfa;
+      border-left: 6px solid #0f766e;
+      padding: 24px;
+      margin-top: 30px;
+      border-radius: 8px;
+    }
+    .info-box p {
+      margin-bottom: 0;
+      color: #042f2e;
+      font-weight: 500;
+    }
+    .warning-box {
+      background-color: #fffbeb;
+      border-left: 6px solid #d97706;
+      padding: 24px;
+      margin-top: 30px;
+      border-radius: 8px;
+    }
+    .warning-box p {
+      margin-bottom: 0;
+      color: #78350f;
+      font-weight: 500;
+    }
+    ul {
+      margin-left: 20px;
+      list-style-type: square;
+    }
+    li {
+      margin-bottom: 0.8em;
+    }
+    .keyword-highlight {
+      color: #0f766e;
+      font-weight: 800;
+    }
+    .accent-highlight {
+      color: #b45309;
+      font-weight: 800;
+    }
+    .faq .item {
+      border-bottom: 1.5px solid #e2e8f0;
+      padding: 22px 0;
+    }
+    .faq .item:last-child {
+      border-bottom: none;
+    }
+    .faq h3 {
+      cursor: pointer;
+      color: #0f172a;
+      font-weight: 700;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq .content {
+      display: none;
+      padding-top: 15px;
+      color: #475569;
+    }
+    .faq h3::after {
+      content: '+';
+      font-size: 1.6rem;
+      color: #0f766e;
+      transition: transform 0.3s ease;
+    }
+    .faq h3.active::after {
+      content: '-';
+    }
+    .chart-container {
+      margin: 40px 0;
+      background-color: #f8fafc;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    .calc-container {
+      background-color: #f1f5f9;
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: 30px;
+      border: 1px solid #cbd5e1;
+    }
+    .calc-result-box {
+      background-color: #ffffff;
+      padding: 24px;
+      border-radius: 8px;
+      margin-top: 20px;
+      border: 1px solid #e2e8f0;
+    }
+    .calc-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    .calc-row-total {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 2px solid #0f766e;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #0f766e;
+    }
+    @media (max-width: 768px) {
+      body { padding: 10px; }
+      header, section, footer { padding: 25px; margin: 20px auto; }
+      h1 { font-size: 2.1rem; }
+      h2 { font-size: 1.6rem; }
+      nav ul { flex-direction: column; gap: 8px; }
+      .input-group { flex: 1 1 100%; }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const faqItems = document.querySelectorAll('.faq .item h3');
+      faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const content = item.nextElementSibling;
+          item.classList.toggle('active');
+          if (content.style.display === 'block') {
+            content.style.display = 'none';
+          } else {
+            content.style.display = 'block';
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>2026년형 <span class="keyword-highlight">디펜더 가격</span> 총정리: 모델별 예상 견적 및 최저가 할인 가이드</h1>
+    <p>랜드로버 브랜드를 대표하는 전천후 오프로드 아이콘, 올 뉴 디펜더의 2026년형 공식 권장 소비자 가격표를 상세히 분석해 드립니다. 본 정보는 디펜더 90, 디펜더 110, 디펜더 130 모델을 비롯해 고성능 파워트레인 디펜더 V8 및 한정판 스페셜 트림까지 종합적으로 아우르고 있습니다. 차량 구매를 구상 중이시라면, 꼼꼼하게 실구매가를 <span class="keyword-highlight">비교</span>하고 다양한 금융 <span class="keyword-highlight">혜택</span>을 적용하는 법을 상세하게 확인하시기 바랍니다.</p>
     <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+      <ul>
+        <li><a href="#intro">디펜더 트렌드 분석</a></li>
+        <li><a href="#price-table">2026년 공식 가격표</a></li>
+        <li><a href="#engine-specs">엔진 사양 및 비교</a></li>
+        <li><a href="#direct-calculator">실구매가 계산기</a></li>
+        <li><a href="#purchase-tips">최저가 할인 전략</a></li>
+        <li><a href="#owner-reviews">커뮤니티 오너 후기</a></li>
+        <li><a href="#competitors">경쟁 차량 분석</a></li>
+        <li><a href="#faq">자주 묻는 질문 FAQ</a></li>
+        <li><a href="#contact">견적 및 컨설팅 신청</a></li>
+      </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+  </header>
+
+  <section id="intro">
+    <h2>2026년형 올 뉴 디펜더의 특징과 국내 시장의 입지</h2>
+    <p>수입 오프로더 자동차 시장에서 독보적인 <span class="keyword-highlight">순위</span>를 고수하고 있는 랜드로버 올 뉴 디펜더는 고유의 클래식한 외형에 혁신적인 최첨단 첨단 디지털 편의 장비와 탁월한 모노코크 바디 강성을 결합해 전 세계적인 인기를 얻고 있습니다. 국내 도로 환경에서도 단순한 레저용 차량의 범주를 넘어 패밀리카 및 데일리 카로 자리를 잡으며 지속적인 수요를 견인하고 있습니다. 2026년형 모델은 고성능 오프로드 등급인 디펜더 110 P635 OCTA 라인업과 에디션 원을 비롯하여, 차별화된 패키징의 디펜더 110 P400 Trophy Edition 등이 새롭게 정비되며 오너분들의 다채로운 기호를 충족하고 있습니다.</p>
+    <p>본격적인 신차 계약 및 인도 단계를 앞두고 예비 구매자들의 주요 관심사는 단연 <span class="keyword-highlight">디펜더 가격</span> 수준입니다. 차량 가격 자체가 기본 1억 원을 웃도는 고가 라인업이기 때문에 단순 차량 권장 소비자가 뿐 아니라, 취등록세와 공채 매입 <span class="keyword-highlight">비용</span>, 그리고 부가적인 다이렉트 자동차 보험 요율과 딜러사 공식 할인 프로모션 혜택의 범위에 따라 최종 부담하게 되는 실제 <span class="keyword-highlight">금액</span>의 격차가 매우 커집니다. 수입차 전용 리스 및 장기렌트 상품 등의 금융 프로그램을 설계할 때는 월 지불해야 하는 <span class="keyword-highlight">요금제</span> 조건을 철저히 따져보고 본인의 경제적 예산에 부합하는지 꼼꼼하게 <span class="keyword-highlight">계산</span>해보는 기조가 필요합니다.</p>
+    <p>이에 따라 네이버, 구글 검색 포털을 비롯해 유튜브, 인스타그램, 페이스북, 트위터 같은 다양한 SNS 채널과 보배드림, 디시, 펨코(에펨코리아) 같은 유명 자동차 및 종합 커뮤니티 공간에서도 실질적인 매장 <span class="keyword-highlight">좌표</span>와 비공식 지원 혜택을 수소문하는 글들이 꾸준히 게시되고 있습니다. 본문에서는 검증된 오너들의 <span class="keyword-highlight">내돈내산 후기</span> 데이터와 각 딜러사별 현업 종사자들의 피드백을 기반으로 실질적 가이드를 안내해 드립니다.</p>
+  </section>
+
+  <section id="price-table">
+    <h2>2026년형 디펜더 공식 판매 가격표 일람</h2>
+    <p>아래 표는 재규어 랜드로버 코리아에서 공표한 2026년형 랜드로버 디펜더 90, 디펜더 110, 디펜더 130 라인업의 세부 트림별 권장 소비자 <span class="keyword-highlight">가격</span> 정보입니다. 개별소비세 기준 요율 변화 및 기본 블랙박스, 하이패스, ONE CARE 애프터 서비스 보증 프로그램이 일괄 포함된 요금 기준입니다.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>모델 종류</th>
+          <th>세부 트림 및 사양</th>
+          <th>파워트레인 형식</th>
+          <th>공식 가격 (원)</th>
+          <th>평균 예상 할인 (원)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>디펜더 90</td>
+          <td>90 D250 X-Dynamic SE</td>
+          <td>디젤 마일드 하이브리드</td>
+          <td>111,370,000</td>
+          <td>9,000,000</td>
+        </tr>
+        <tr>
+          <td>디펜더 90</td>
+          <td>90 P400 X</td>
+          <td>가솔린 마일드 하이브리드</td>
+          <td>145,070,000</td>
+          <td>13,000,000</td>
+        </tr>
+        <tr>
+          <td>디펜더 110</td>
+          <td>110 D250 X-Dynamic SE</td>
+          <td>디젤 마일드 하이브리드</td>
+          <td>116,570,000</td>
+          <td>9,500,000</td>
+        </tr>
+        <tr>
+          <td>디펜더 110</td>
+          <td>110 D300 X-Dynamic HSE</td>
+          <td>디젤 마일드 하이브리드</td>
+          <td>130,770,000</td>
+          <td>10,000,000</td>
+        </tr>
+        <tr>
+          <td>디펜더 110</td>
+          <td>110 P300 X-Dynamic SE</td>
+          <td>가솔린 싱글 터보</td>
+          <td>120,170,000</td>
+          <td>9,500,000</td>
+        </tr>
+        <tr>
+          <td>디펜더 110</td>
+          <td>110 P400 X</td>
+          <td>가솔린 마일드 하이브리드</td>
+          <td>154,870,000</td>
+          <td>14,000,000</td>
+        </tr>
+        <tr>
+          <td>디펜더 110</td>
+          <td>110 P400 Trophy (Yellow / Green)</td>
+          <td>가솔린 마일드 하이브리드</td>
+          <td>147,570,000</td>
+          <td>12,000,000</td>
+        </tr>
+        <tr>
+          <td>디펜더 110</td>
+          <td>110 P635 OCTA</td>
+          <td>가솔린 V8 트윈 터보 MHEV</td>
+          <td>230,170,000</td>
+          <td>10,000,000</td>
+        </tr>
+        <tr>
+          <td>디펜더 110</td>
+          <td>110 P635 OCTA Black</td>
+          <td>가솔린 V8 트윈 터보 MHEV</td>
+          <td>245,470,000</td>
+          <td>10,000,000</td>
+        </tr>
+        <tr>
+          <td>디펜더 130</td>
+          <td>130 P400 X-Dynamic HSE</td>
+          <td>가솔린 마일드 하이브리드</td>
+          <td>159,270,000</td>
+          <td>14,000,000</td>
+        </tr>
+        <tr>
+          <td>디펜더 130</td>
+          <td>130 P400 Outbound</td>
+          <td>가솔린 마일드 하이브리드</td>
+          <td>147,470,000</td>
+          <td>14,000,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-box">
+      <p>본 소비자가격표 상의 원화 금액은 기본 사양 탑재 기준입니다. 추가 옵션 파츠나 외장 컬러 도색 패키지, 캐리어 액세서리 팩 부착 조건에 따라 실제 청구되는 세금 계산 금액은 다소 차이가 존재할 수 있으므로, 제휴 대리점 딜러 혹은 수입 전문 컨설팅 업체의 실시간 비공식 프로모션 정보를 함께 확인하는 프로세스를 거쳐야 가장 합리적인 가액으로 구매를 확정 지을 수 있습니다.</p>
+    </div>
+  </section>
+
+  <section id="engine-specs">
+    <h2>디펜더 파워트레인 옵션별 장단점 및 기술적 특성</h2>
+    <p>랜드로버 디펜더는 오너의 승차 환경과 주안점에 따라 폭넓은 파워트레인 구성을 제공하고 있습니다. 크게 세 가지 방향성인 인라인 6기통 디젤 마일드 하이브리드, 가솔린 엔진 라인업, 그리고 고성능을 지향하는 옥타(OCTA) 트림의 8기통 바이터보 엔진으로 나뉩니다. 각 선택지별 고유의 매력과 아쉬운 한계점은 다음과 같이 정비됩니다.</p>
+    
+    <h3>디펜더 디젤 엔진 라인업 (D250 / D300)</h3>
+    <p>D250 및 D300 모델에 투입된 직렬 6기통 인제니움 디젤 엔진은 효율성이 핵심입니다. 마일드 하이브리드 시스템이 엔진 작동을 제어하고 회생 제동 보조 동력을 더해, 대형 4륜 구동 차량임에도 불구하고 복합연비 리터당 10킬로미터 내외를 유지합니다. 최대토크 발생 구간이 1500~2500rpm의 극초반 영역대에 세팅되어 험로나 경사지에서 압도적인 견인 능력을 뿜어내는 점이 절대적인 <span class="keyword-highlight">장점</span>입니다. 장거리 캠핑이나 고속도로 크루징 빈도가 잦다면 탁월한 합리성을 자랑합니다.</p>
+    <p>반면, 디젤 연료 고유의 진동과 유로6 배기가스 기준을 맞추기 위한 주기적인 요소수 보충 절차는 필연적입니다. 누적 주행거리가 10만 킬로미터를 돌파하는 시점부터는 DPF, SCR 등의 배출가스 정화 계통 장치에 소요되는 메인터넌스 관리 <span class="keyword-highlight">비용</span> 부담이 불어날 수 있다는 소유주들의 <span class="keyword-highlight">단점</span> 피드백이 존재합니다.</p>
+
+    <h3>디펜더 가솔린 엔진 라인업 (P300 / P400)</h3>
+    <p>가솔린 트림인 P300 및 P400 엔진은 고속 회전영역대의 매끄러운 출력 전개와 정숙성이 돋보입니다. 공회전 시에는 디젤인지 알아채기 힘들 만큼 우수한 방음성능을 발휘하며 디펜더 특유의 랜드로버 에어 서스펜션 하체 피칭 제어와 조화를 이루어 도심 고급 패밀리 SUV로서의 질감을 자랑합니다. 고속 구간에서 발휘되는 후반 마력감은 디젤 모델을 확실히 능가합니다.</p>
+    <p>그러나 기름값 부담은 온전히 소비자의 몫입니다. 실연비 기준 시내 주행 시 리터당 5에서 7킬로미터 구간을 오가는 수준이며 무거운 차체 무게로 인해 유류비 월 납입 <span class="keyword-highlight">금액</span> 계산기 결과값에 다소 부담을 느낄 수 있습니다. 이에 도심 기반 출퇴근 위주이면서 정숙한 주행 성능을 일순위로 희망하는 오너층에게 선호도가 높게 형성되어 있습니다.</p>
+
+    <h3>고성능 오프로드 스페셜 트림 (OCTA)</h3>
+    <p>2026년형의 백미인 P635 옥타 모델은 4.4리터 V8 가솔린 트윈터보 엔진과 극한의 거친 로드 주행을 견디는 유압식 다이내믹 서스펜션 서킷 기술을 탑재해 635마력에 이르는 주행 능력을 확보했습니다. 일반 디펜더 세단형의 한계를 초월하여 험로 고속 주행에 특화된 스페셜 사양이지만, 세제 혜택 등이 배제되어 전체 취등록 부대 세금이 최소 1500만 원 이상 청구되고 신차 출고가 자체가 2억 원을 초과하기 때문에 고소득 오너들의 마니아층 위주로 수급이 이루어지고 있습니다.</p>
+  </section>
+
+  <section id="direct-calculator">
+    <h2>디펜더 실구매가 및 금융 시뮬레이터 프로그램</h2>
+    <p>원하는 바디 스타일과 주행 연료 형식을 입력하고 초기 인도 시 설정할 인수 방식에 따라 달라지는 지출 가액을 실시간으로 산정해 볼 수 있는 <span class="keyword-highlight">계산기</span> 기능을 제공합니다. 차량 할인 및 인수가 설정을 직접 변경하여 최적의 지불 금액을 계산해 보시기 바랍니다.</p>
+    
+    <div class="calc-container">
+      <h3>스마트 금융 요금 산출 계산 프로그램</h3>
+      <div class="input-section" style="margin-top: 10px;">
+        <div class="input-group">
+          <label for="calc-model">희망 디펜더 바디타입 선택</label>
+          <select id="calc-model" onchange="updateCalcTrims()">
+            <option value="90">디펜더 90 (숏바디 2도어)</option>
+            <option value="110" selected>디펜더 110 (메인스트림 4도어)</option>
+            <option value="130">디펜더 130 (롱바디 3열 8인승)</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="calc-trim">세부 트림 및 등급 사양</label>
+          <select id="calc-trim" onchange="calculateInstallment()">
+            <!-- Dynamic items load -->
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="calc-discount">딜러사 특별 제휴 할인액 (원)</label>
+          <input type="number" id="calc-discount" value="10000000" step="500000" oninput="calculateInstallment()">
+        </div>
+        <div class="input-group">
+          <label for="calc-deposit">초기 준비 선납금액 (원)</label>
+          <input type="number" id="calc-deposit" value="30000000" step="1000000" oninput="calculateInstallment()">
+        </div>
+        <div class="input-group">
+          <label for="calc-period">할부 및 대여 상환 기한 설정</label>
+          <select id="calc-period" onchange="calculateInstallment()">
+            <option value="36">36개월 (3년 약정)</option>
+            <option value="48">48개월 (4년 약정)</option>
+            <option value="60" selected>60개월 (5년 약정)</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="calc-rate">적용 금융 연 이자율 (%)</label>
+          <input type="number" id="calc-rate" value="5.9" step="0.1" oninput="calculateInstallment()">
+        </div>
+      </div>
+
+      <div class="calc-result-box">
+        <h3>세무 및 월 납입금 예측 분석 리포트</h3>
+        <div class="calc-row">
+          <span>차량 기본가액</span>
+          <span id="res-base">0원</span>
+        </div>
+        <div class="calc-row">
+          <span>적용 총 혜택 할인</span>
+          <span id="res-discount" style="color: #b45309;">-0원</span>
+        </div>
+        <div class="calc-row">
+          <span>최종 차량 순수 구입 가격</span>
+          <span id="res-car-price">0원</span>
+        </div>
+        <div class="calc-row">
+          <span>정부 공인 취등록세 세액 (7%)</span>
+          <span id="res-tax">0원</span>
+        </div>
+        <div class="calc-row">
+          <span>초기 번호판 등록 및 채권 비용 (예상)</span>
+          <span id="res-bond">0원</span>
+        </div>
+        <div class="calc-row">
+          <span>할부 적용 총 대출 금액</span>
+          <span id="res-loan">0원</span>
+        </div>
+        <div class="calc-row-total">
+          <span>매월 예상 납입 요금</span>
+          <span id="res-monthly">0원</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const trimDatabase = {
+        "90": [
+          { name: "90 D250 X-Dynamic SE", price: 111370000 },
+          { name: "90 P400 X", price: 145070000 }
+        ],
+        "110": [
+          { name: "110 D250 X-Dynamic SE", price: 116570000 },
+          { name: "110 D300 X-Dynamic HSE", price: 130770000 },
+          { name: "110 P300 X-Dynamic SE", price: 120170000 },
+          { name: "110 P400 X", price: 154870000 },
+          { name: "110 P400 Trophy Edition", price: 147570000 },
+          { name: "110 P635 OCTA", price: 230170000 },
+          { name: "110 P635 OCTA Black", price: 245470000 }
+        ],
+        "130": [
+          { name: "130 P400 X-Dynamic HSE", price: 159270000 },
+          { name: "130 P400 Outbound", price: 147470000 }
+        ]
+      };
+
+      function updateCalcTrims() {
+        const bodyType = document.getElementById("calc-model").value;
+        const trimSelect = document.getElementById("calc-trim");
+        trimSelect.innerHTML = "";
+
+        trimDatabase[bodyType].forEach(trim => {
+          const opt = document.createElement("option");
+          opt.value = trim.price;
+          opt.textContent = trim.name + " (" + (trim.price/100000000).toFixed(2) + "억 원)";
+          trimSelect.appendChild(opt);
+        });
+
+        calculateInstallment();
+      }
+
+      function calculateInstallment() {
+        const basePrice = parseInt(document.getElementById("calc-trim").value) || 0;
+        const discount = parseInt(document.getElementById("calc-discount").value) || 0;
+        const deposit = parseInt(document.getElementById("calc-deposit").value) || 0;
+        const period = parseInt(document.getElementById("calc-period").value) || 60;
+        const annualRate = parseFloat(document.getElementById("calc-rate").value) || 5.9;
+
+        const netCarPrice = Math.max(0, basePrice - discount);
+        const tax = Math.round(netCarPrice * 0.07);
+        const bond = Math.round(netCarPrice * 0.012); // Approximate bond/registration cost
+        const loanAmount = Math.max(0, netCarPrice - deposit);
+
+        let monthlyPayment = 0;
+        if (loanAmount > 0) {
+          const monthlyRate = (annualRate / 100) / 12;
+          if (monthlyRate > 0) {
+            monthlyPayment = Math.round((loanAmount * monthlyRate * Math.pow(1 + monthlyRate, period)) / (Math.pow(1 + monthlyRate, period) - 1));
+          } else {
+            monthlyPayment = Math.round(loanAmount / period);
+          }
+        }
+
+        document.getElementById("res-base").textContent = basePrice.toLocaleString() + "원";
+        document.getElementById("res-discount").textContent = "-" + discount.toLocaleString() + "원";
+        document.getElementById("res-car-price").textContent = netCarPrice.toLocaleString() + "원";
+        document.getElementById("res-tax").textContent = tax.toLocaleString() + "원";
+        document.getElementById("res-bond").textContent = bond.toLocaleString() + "원";
+        document.getElementById("res-loan").textContent = loanAmount.toLocaleString() + "원";
+        document.getElementById("res-monthly").textContent = monthlyPayment.toLocaleString() + "원";
+      }
+
+      // Initial Trigger
+      window.onload = function() {
+        updateCalcTrims();
+      };
+    </script>
+    <p style="margin-top: 15px;" class="ai-mention">스마트폰 자산관리 <span class="keyword-highlight">앱</span>이나 카카오톡 뱅크 제휴 전용 <span class="keyword-highlight">어플</span>, 혹은 토스 모바일 가계 계산 탭을 통해서도 할부 상환 한도 조회가 연동되어 제공되는 경우가 많으니, 본 프로그램을 통한 시뮬레이션 금액과 연동하여 한도를 사전에 설계해보시는 행태를 <span class="keyword-highlight">추천</span>합니다.</p>
+  </section>
+
+  <section id="purchase-tips">
+    <h2>신차 계약 시 현금지원 및 최대 할인 프로모션 획득 비법</h2>
+    <p>랜드로버 브랜드 차량은 딜러사의 구조상 전국의 권역별 네트워크(효성, KCC, 아주 등) 지점마다 비공식 프로모션 <span class="keyword-highlight">금액</span>의 차이가 상당합니다. 따라서 공식 <span class="keyword-highlight">고객센터</span> 대표번호로 단순 연락하는 것보다 온라인의 유능한 에이전트 <span class="keyword-highlight">업체</span>를 통하여 전국 재고 현황을 파악하고 비공식 <span class="keyword-highlight">현금지원</span>이나 딜러 자체 서비스 <span class="keyword-highlight">지원금</span> 수준을 조율해야 실질적인 지출 가액을 <span class="keyword-highlight">최저가</span>로 마감할 수 있습니다.</p>
+    <ul>
+      <li><strong>비공식 추가 혜택 및 다이렉트 컨설팅 연계:</strong> 차량 대금의 일부분을 딜러사 제휴 금융사로 이용하는 조건으로 약정 계약 시, 대리점에서 지급해주는 특별 캐시백 사은 서비스, 혹은 모바일 정품 액세서리 구매용 <span class="keyword-highlight">상품권</span>이나 골프백 등의 추가 실물 <span class="keyword-highlight">사은품</span> 패키지의 협상 여지가 넓어집니다.</li>
+      <li><strong>법인 명의 리스 활용 및 세무 처리 혜택:</strong> 개인사업자나 법인 명의로 리스 혹은 장기 렌트 가입 신청을 진행할 경우 월 불입 지출 요금 전체를 경비 처리 한도 내에서 손쉽게 털어내어 소득세를 경감하는 세무 절약 <span class="keyword-highlight">방법</span>이 성립됩니다.</li>
+      <li><strong>연말 및 분기 마감 프로모션 이벤트 공략:</strong> 딜러사들이 제조사로부터 대당 인센티브를 정산받는 매분기 끝단 혹은 연말 재고 소진 주간에 신차 승인 등록을 서두르면, 평소 기간 대비 3% 이상 우대된 특별 판매 <span class="keyword-highlight">이벤트</span> 단가표 혜택을 획득할 확률이 지대합니다.</li>
+    </ul>
+    <p>인터넷의 여러 할인 <span class="keyword-highlight">성지</span> 혹은 실시간 견적 공유 <span class="keyword-highlight">사이트</span>에서 명시하는 가이드 단가를 꼼꼼히 갈무리한 뒤, 최종 오프라인 대리점 내방 시 경쟁을 유도하여 견적 조율을 조율하는 것이 일반 신규 가입자들에게 통용되는 보편적인 성공 정석입니다.</p>
+  </section>
+
+  <section id="owner-reviews">
+    <h2>보배드림 및 디시인사이더 차주들의 실제 솔직한 내돈내산 평가</h2>
+    <p>오랫동안 차량을 보유하며 일상에서 시승을 진행해온 기존 유저들의 <span class="keyword-highlight">내돈내산 후기</span>는 그 어떤 제원표 설명보다 신뢰도가 높습니다. 국내 오너들이 가장 밀집된 커뮤니티인 보배드림, 디시 차갤, 에펨코리아(펨코) 게시판 등의 주요 동향을 요약해 드립니다.</p>
+    
+    <div class="warning-box">
+      <p><strong>실 차주들이 말하는 디펜더의 현실적인 개선 요구 요인:</strong></p>
+      <ul>
+        <li>인포테인먼트 피비 프로 시스템의 이따금씩 발생하는 간헐적 무선 커넥티드 끊김 결함</li>
+        <li>보증 수리 보증 기한이 경과한 뒤 가파르게 가중되는 정비 부품 단가 및 하체 에어서스펜션 유지 부담액</li>
+        <li>대형 패밀리 차량임에도 외장 스페어 타이어 부착 부피로 인해 좁은 지하주차장 진입 및 센서 오작동 사례 빈번</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <p><strong>실 차주들이 말하는 최고의 가치 부여 핵심:</strong></p>
+      <ul>
+        <li>도심형 프레임 타입 SUV들과 비교를 거부하는 압도적인 도로 위 하차감과 유려한 영국적 오프로드 풍모</li>
+        <li>비 오는 진흙길이나 한겨울 눈길 폭설 악천후 노면 상황에서도 전자동 지형 반응 제어를 통한 탁월한 안정감</li>
+        <li>세련된 인테리어 마감 소재 구조와 장시간 장거리 고속 주행 시에도 피로감이 극히 덜한 1열 에르고 시트 배합</li>
+      </ul>
+    </div>
+    <p>이 때문에 초기 인수 단계에서 소모품 무료 지원 쿠폰 무상 서비스 범위 확대 프로모션을 제공해 주는 공식 딜러 매장의 가맹점 위치 좌표를 수소문해 최종 도장을 찍는 것이 지극히 합리적이고 안전한 수입차 소유 <span class="keyword-highlight">방법</span>이라고 동호회 베테랑들은 권장하고 있습니다.</p>
+  </section>
+
+  <section id="competitors">
+    <h2>동급 경쟁 수입 SUV 대표 후보군 세부 차이점 정밀 비교</h2>
+    <p>디펜더와 늘 도마 위에 오르는 메이저 3대장 차종인 벤츠 G클래스, 포드 브롱코, 이네오스 그레나디어와의 핵심 스펙 및 실구매 체감 가치를 입체적으로 조명해 드립니다.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>비교 대상 모델</th>
+          <th>권장 출시 가액대</th>
+          <th>서스펜션 타입</th>
+          <th>지향점 및 강점 요소</th>
+          <th>단점 및 실이익 판단</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>올 뉴 디펜더 110</td>
+          <td>1억 1,657만 ~ 1억 5,487만</td>
+          <td>에어 서스펜션</td>
+          <td>온로드 승차감과 오프로드 첨단 모드 조화</td>
+          <td>전기 전자 제어계통 잔고장 우려 잔존</td>
+        </tr>
+        <tr>
+          <td>메르세데스 벤츠 G클래스</td>
+          <td>1억 8,000만 ~ 2억 5,000만</td>
+          <td>가변 댐핑 코일</td>
+          <td>상징적인 각진 멋과 최고의 리세일 벨류 지탱</td>
+          <td>차량 인도 지연 심각 및 비좁은 2열 레그룸</td>
+        </tr>
+        <tr>
+          <td>포드 브롱코</td>
+          <td>8,000만 ~ 9,000만</td>
+          <td>HOSS 오프로드 댐퍼</td>
+          <td>합리적으로 즐기는 가솔린 기반 랭글러 대항마</td>
+          <td>대시보드 등 내장재 곳곳 플라스틱 위주 마감</td>
+        </tr>
+        <tr>
+          <td>이네오스 그레나디어</td>
+          <td>1억 1,000만 ~ 1억 3,000만</td>
+          <td>리프팅 스프링 코일</td>
+          <td>순수 기계식 아날로그 감성 감각 복각</td>
+          <td>편의 보조 사양 결여로 데일리카 운용 애로</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>비교 결과, 완전한 기계식 아일랜드 감성을 고수하고 싶은 부류는 그레나디어로 선회하는 경향이 짙은 반면, 매일 도심 속 빌딩 숲을 출퇴근하며 이따금씩 오지 캠핑을 즐기고자 하는 럭셔리 패밀리 유저들에게는 성능과 세련미를 타협한 디펜더 제품군이 여전히 압도적으로 높은 최우선 구매 추천 순위로 선택받고 있습니다.</p>
+  </section>
+
+  <section id="faq" class="faq">
+    <h2>자주 묻는 질문 및 상세 답변 (FAQ)</h2>
+    
+    <div class="item">
+      <h3>디펜더의 월평균적인 현실 유지비 산정 범위는 얼마인가요?</h3>
+      <div class="content">
+        <p>인수 초기 비용을 선납하고 남은 차액을 60개월 금융 기준 세팅 시 매달 상환 요금은 평균 약 120만 원에서 180만 원 선입니다. 여기에 연간 자동차세 약 80만 원, 다이렉트 자차 결합 자동차 보험 요금 연간 평균 150만 원 내외, 그리고 매달 유류 비용 약 35만 원 선을 추가 합산하면 통상 한 달에 평균 180만 원에서 240만 원 상당의 종합 유지 비용 지출이 유발되는 것으로 계산됩니다.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>딜러사별 비공식 지원금 요율을 더 많이 수령하는 꿀팁은 무엇입니까?</h3>
+      <div class="content">
+        <p>온라인 전용 에이전트 금융 비교 플랫폼 앱을 가맹 설치하거나, 네이버 자동차 공식 제휴 카페 내 신차 역경매 서비스를 활용하시는 루트가 단연 현명합니다. 타 대리점 견적서의 조건들을 상호 제시하며 딜러 3개사 이상 경쟁 입찰 방식을 활용하게 되면 비공식 할인율이 극대화되며, 계약 출고 단계에서 전면 썬팅 업그레이드 사은 팩이나 유리막 코팅 코팅, 생활 보호 필름 등의 가치를 추가 지원으로 든든하게 제공받을 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>디펜더 110과 130 모델의 구체적인 크기와 내부 승차감 차이점은 어떤가요?</h3>
+      <div class="content">
+        <p>두 차종의 휠베이스(축거) 길이는 3,022mm로 완전히 대동소이합니다. 다만, 디펜더 130의 경우 3열 탑승객의 거주 편의성을 도모하기 위해 트렁크 뒤 오버행 전장 길이를 약 340mm 늘렸습니다. 130 트림은 최대 8인이 탑승할 수 있는 넉넉한 레이아웃을 가지는 반면 후미가 길어진 구조 탓에 과속방지턱 통과나 좁은 골목길 코너링 주행 질감 면에서는 디펜더 110 가솔린/디젤 제품이 확실히 콤팩트하고 경쾌하다는 실무 차주 시승단 의견이 주류를 이룹니다.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>제미나이나 챗지피티 같은 인공지능 AI 에이전트를 통한 견적 확인의 효용성은 어떤가요?</h3>
+      <div class="content">
+        <p>최신 생성형 인공지능은 랜드로버 본사에서 실시간 개편하는 신형 카탈로그 요율이나 특가 전단지 공시 정보를 구글, 네이버 웹서핑으로 탐색하여 대략적인 표준 예산을 오차 범위를 줄여 신속하게 제시해주는 장점이 지대합니다. 다만, 각 일선 전시장 지점 본부장급 재량 비공식 현금 캐시백 지원율처럼 실시간으로 출렁이는 네고 조건은 수동으로 움직이는 정식 에이전트 1대1 무상 맞춤 상담 단계를 거치시는 것이 훨씬 상세하고 실익이 높습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>디펜더 모델별 최적 견적 산출 및 맞춤 컨설팅 신청</h2>
+    <p>본인의 라이프스타일과 예산 목표를 기반으로 2026년형 랜드로버 올 뉴 디펜더 차량의 실시간 전국 재고 확보 현황, 비공식 특판 할인율, 최대 캐시백 혜택을 총집합한 명쾌한 맞춤 리포트를 송부해 드립니다. 아래 필수 인적사항을 간결히 기입해 주시면 당담 실무 엔지니어가 신속하게 연락을 전개하겠습니다.</p>
+    
+    <form action="#" method="post" onsubmit="alert('상담 신청이 완료되었습니다. 담당자가 신속히 연락해 드리겠습니다.'); return false;">
+      <div class="input-section">
+        <div class="input-group">
+          <label for="contact-name">의뢰인 성함</label>
+          <input type="text" id="contact-name" placeholder="실명을 입력해주십시오" required>
+        </div>
+        <div class="input-group">
+          <label for="contact-phone">연락 수신처 번호</label>
+          <input type="tel" id="contact-phone" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}" placeholder="예시: 010-1234-5678" required>
+        </div>
+        <div class="input-group">
+          <label for="contact-body">구입 희망 바디 라인업</label>
+          <select id="contact-body">
+            <option value="90">디펜더 90 (2도어 컴팩트 스포츠)</option>
+            <option value="110" selected>디펜더 110 (4도어 실용 패밀리 에디션)</option>
+            <option value="130">디펜더 130 (최대 8인 대형 캠핑용 롱바디)</option>
+            <option value="octa">고성능 특별 한정판 P635 OCTA</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="contact-method">이용 구상 금융 방식</label>
+          <select id="contact-method">
+            <option value="cash">전액 일시불 계좌 송금</option>
+            <option value="loan">은행 다이렉트 장기 오토론 할부</option>
+            <option value="lease" selected>전문 에이전트 운용 리스</option>
+            <option value="rent">초기비용 제로 장기 렌트카</option>
+          </select>
+        </div>
+        <div class="input-group-full">
+          <label for="contact-memo">희망 사항 및 딜러 지원 조건 문의</label>
+          <textarea id="contact-memo" placeholder="예컨대 기존 타사 SUV 차량 보유 처분 후 대차 할인 혜택 연계 가능성 타진, 선호하는 썬팅 필름 사양 브랜드 및 블랙박스 추가 요청 사항 등 세밀한 내역을 기입할수록 맞춤 리포트의 완성도가 고도화됩니다."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="cta-btn">디펜더 전무가 무료 컨설팅 요약본 신청</button>
+    </form>
+  </section>
+
+  <section id="external-resources">
+    <h2>신뢰도가 검증된 수입차 관련 공식 정보 출처 안내</h2>
+    <p>보다 입체적인 부대 상식 및 전문 사양 점검을 희망하시는 경우, 아래의 권위 있는 국내외 전문 데이터 포털 채널을 경유하여 한층 객관성 있는 오너 지식을 습득해 보시기 바랍니다.</p>
+    <ul>
+      <li><a href="https://directnchecko.koreahankang.com" target="_blank" rel="noopener">수입차 금융 동향 리포트 전문 분석 사이트</a></li>
+      <li><a href="https://namu.wiki/w/%EB%9E%9C%EB%93%9C%EB%A1%9C%EB%B2%84%20%EB%94%94%ED%8E%9C%EB%8D%94" target="_blank" rel="noopener">나무위키 백과사전 랜드로버 디펜더 역사 및 기술 히스토리 자료</a></li>
+      <li><a href="https://www.landrover.co.kr" target="_blank" rel="noopener">재규어 랜드로버 코리아 공인 본사 가맹 온라인 가맹 카탈로그 정보</a></li>
+    </ul>
+  </section>
+  
